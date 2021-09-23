@@ -420,20 +420,8 @@ static int detect_yolov5(const cv::Mat& bgr, std::vector<Object>& objects)
     return 0;
 }
 
-static cv::Mat draw_objects(const cv::Mat& bgr, const std::vector<Object>& objects)
+static void draw_objects(const cv::Mat& bgr, const std::vector<Object>& objects)
 {
-    /*static const char* class_names[] = {
-        "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat", "traffic light",
-        "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat", "dog", "horse", "sheep", "cow",
-        "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella", "handbag", "tie", "suitcase", "frisbee",
-        "skis", "snowboard", "sports ball", "kite", "baseball bat", "baseball glove", "skateboard", "surfboard",
-        "tennis racket", "bottle", "wine glass", "cup", "fork", "knife", "spoon", "bowl", "banana", "apple",
-        "sandwich", "orange", "broccoli", "carrot", "hot dog", "pizza", "donut", "cake", "chair", "couch",
-        "potted plant", "bed", "dining table", "toilet", "tv", "laptop", "mouse", "remote", "keyboard", "cell phone",
-        "microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors", "teddy bear",
-        "hair drier", "toothbrush"
-    };*/
-
     static const char* class_names[] = {
                                         "aeroplane", "bicycle", "bird", "boat",
                                         "bottle", "bus", "car", "cat", "chair",
@@ -473,60 +461,32 @@ static cv::Mat draw_objects(const cv::Mat& bgr, const std::vector<Object>& objec
             cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0), 1);
     }
 
-    /*cv::imshow("image", image);
-    cv::waitKey(0);*/
-    return image;
+    cv::imshow("image", image);
+    cv::imwrite("F:/GitHub/ncnn-mobilenet-yolov5/bus-dem0.jpg", image);
+    cv::waitKey(0);
 }
-
-//int main(int argc, char** argv)
-//{
-//    if (argc != 2)
-//    {
-//        fprintf(stderr, "Usage: %s [imagepath]\n", argv[0]);
-//        return -1;
-//    }
-//
-//    const char* imagepath = argv[1];
-//
-//    cv::Mat m = cv::imread(imagepath, 1);
-//    if (m.empty())
-//    {
-//        fprintf(stderr, "cv::imread %s failed\n", imagepath);
-//        return -1;
-//    }
-//
-//    std::vector<Object> objects;
-//    detect_yolov5(m, objects);
-//
-//    draw_objects(m, objects);
-//
-//    return 0;
-//}
-
 
 int main(int argc, char** argv)
 {
-    cv::VideoCapture capture;
-    capture.open("F:/test.mp4");  //修改这个参数可以选择打开想要用的摄像头
-
-    cv::Mat frame;
-    while (true)
+    if (argc != 2)
     {
-        capture >> frame;
-        cv::Mat m = frame;
-
-        double start = GetTickCount();
-        std::vector<Object> objects;
-        detect_yolov5(frame, objects);
-        double end = GetTickCount();
-
-        // imshow("外接摄像头", m);	//remember, imshow() needs a window name for its first parameter
-        m = draw_objects(m, objects);
-        cv::putText(m, "FPS=" + std::to_string(int(1 / ((end - start) * 0.001))), cv::Point(0, 25), cv::FONT_HERSHEY_COMPLEX, 1, cv::Scalar(0, 0, 255), 1, 2);
-        cv::imshow("video", m);
-
-        if (cv::waitKey(30) >= 0)
-            break;
+        fprintf(stderr, "Usage: %s [imagepath]\n", argv[0]);
+        return -1;
     }
-    cv::destroyWindow;
+
+    const char* imagepath = argv[1];
+
+    cv::Mat m = cv::imread(imagepath, 1);
+    if (m.empty())
+    {
+        fprintf(stderr, "cv::imread %s failed\n", imagepath);
+        return -1;
+    }
+
+    std::vector<Object> objects;
+    detect_yolov5(m, objects);
+
+    draw_objects(m, objects);
+
+    return 0;
 }
