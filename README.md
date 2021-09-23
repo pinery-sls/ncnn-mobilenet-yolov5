@@ -3,4 +3,4 @@
 
 
 # Detection effect
-![](bus-demo.jpg)
+<img src="bus-demo.jpg" width="405" hight="540" align=center />
