@@ -7,5 +7,5 @@
 
 # screenshot
 <center class="half">
-    <img src="demo.jpg" width="270" hight="585"/><img src="demo1.jpg" width="270" hight="585"/>
+    <img src="demo.jpg" width="270" hight="585" align = left/><img src="demo1.jpg" width="270" hight="585" align = right/>
 </center>
