@@ -6,5 +6,6 @@
 <img src="bus-demo.jpg" width="405" hight="540" align=center />
 
 # screenshot
-<img src="demo.jpg"/>
-<img src="demo1.jpg"/>
+<center class="half">
+    <img src="demo.jpg"/><img src="demo1.jpg"/>
+</center>
