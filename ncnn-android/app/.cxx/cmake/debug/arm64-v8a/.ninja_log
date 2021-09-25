@@ -1,0 +1,11 @@
+# ninja log v5
+0	1167	1632123435	CMakeFiles/ncnnyolov5.dir/yolov5ncnn.cpp.o	6856c618f5264b04
+1	1179	1632123435	CMakeFiles/ncnnyolov5.dir/ndkcamera.cpp.o	66273827dac45a6a
+1	1258	1632123435	CMakeFiles/ncnnyolov5.dir/yolov5.cpp.o	d6b516d9b951a7f3
+1258	1743	1632123436	/home/pinery/code/Deploy/Android/ncnn-android-mobilenetv2-yolov5-video/app/build/intermediates/cmake/debug/obj/arm64-v8a/libncnnyolov5.so	a53226d9ae5a8bdd
+1	993	1632123510	CMakeFiles/ncnnyolov5.dir/yolov5.cpp.o	d6b516d9b951a7f3
+993	1126	1632123510	/home/pinery/code/Deploy/Android/ncnn-android-mobilenetv2-yolov5-video/app/build/intermediates/cmake/debug/obj/arm64-v8a/libncnnyolov5.so	a53226d9ae5a8bdd
+1	859	1632123710	CMakeFiles/ncnnyolov5.dir/yolov5ncnn.cpp.o	6856c618f5264b04
+859	1022	1632123711	/home/pinery/code/Deploy/Android/ncnn-android-mobilenetv2-yolov5-video/app/build/intermediates/cmake/debug/obj/arm64-v8a/libncnnyolov5.so	a53226d9ae5a8bdd
+1	994	1632123973	CMakeFiles/ncnnyolov5.dir/yolov5.cpp.o	d6b516d9b951a7f3
+994	1112	1632123973	/home/pinery/code/Deploy/Android/ncnn-android-mobilenetv2-yolov5-video/app/build/intermediates/cmake/debug/obj/arm64-v8a/libncnnyolov5.so	a53226d9ae5a8bdd
